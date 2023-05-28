@@ -31,7 +31,7 @@ def get_bot_response():
         botReply = "getDate()"
     ##Log to CSV file
     print("Logging to CSV file now")
-    with open('BotLog.csv', 'a', newline='') as logFile:
+    with open('data/log.csv', 'a', newline='') as logFile:
         newFileWriter = csv.writer(logFile)
         newFileWriter.writerow([userText, botReply])
         logFile.close()

@@ -34,7 +34,7 @@ Hey,Hello World!
 What's up?,Hello World!
 Who are you?,I am a Chatbot.
 What is your name?,ChatBot.
-1 + 1?," 2"
+1 + 1?,2
 Thank you,"You're welcome! I'm glad I could help. If you have any more questions, feel free to ask."
 What is a student handbook?,"A student handbook is a comprehensive guide that provides information about the policies, procedures, rules, and resources of an educational institution."
 Why is a student handbook important?,"A student handbook serves as a reference for students, helping them understand the expectations, rights, and responsibilities within the institution."
@@ -88,3 +88,4 @@ Are there guidelines on academic probation or academic standing in the student h
 Can I use the student handbook to understand the university's policies on academic advising and faculty availability?,"Yes, the student handbook may provide information on faculty availability, office hours, and the process for seeking academic advising or assistance from professors."
 Are there guidelines on responsible use of technology and computer resources in the student handbook?,"Yes, the student handbook may include guidelines on responsible use of technology resources, computer labs, network services, and the consequences for unauthorized access or misuse."
 "Can I find information about the university's policies on withdrawal, leave of absence, or transfer in the student handbook?","Yes, the student handbook may contain information on the process and requirements for withdrawing from the university, taking a leave of absence, or transferring to another institution."
+LSPU VISION,"The LSPU is a steward of resources through its appropriate, efficient, and effective management and utilization, allowing for impactful and sustainable services in terms of instruction, research, extension, and production that enable communities to attain self-sufficiency."

@@ -10,17 +10,15 @@
     <link rel="stylesheet" type="text/css" href="static/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    <title>Gerabot</title>
+    <title>LSPU OSAS</title>
 </head>
-<body onload="bot_greet('Hello');">
-    <div class="container-fluid h-100">
-        <div class="row justify-content-center h-100">		
-            <div class="col-md-8 col-xl-6 chat">
+<body onload="bot_greet('sige');">
+    <div class="container-fluid card-container p-10">
                 <div class="card">
                     <div class="card-header msg_head">
                         <div class="d-flex bd-highlight">
                             <div class="img_cont">
-                                <img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img">
+                                <img src="a-state-polytechnic-university-logo%2F&psig=AOvVaw3EMooVPsBye=images&cd=vfe&ved=0CBEQjRxqFwoTCMCwg-D_nP8CFQAAAAAdAAAAABAI" class="rounded-circle user_img">
                                 <span class="online_icon"></span>
                             </div>
                             <div class="user_info">
@@ -60,17 +58,24 @@
         $('#send').click(function() {
             var text = $('#chat-input').val();
             rawText = text; 
-            $('.chatbox').append('<div class="chat-response-wrapper border border-success"><p> <span class="font-weight-bold">Student </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + text + '</p></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>');
+            $('.chatbox').append('<div class="chat-response-wrappers border border-success"><p> <span class="font-weight-bold">Student </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + text + '</p></div><div class="img_cont_msg"><img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img_msg"></div></div>');
             $('#chat-input').val('');
 
             // Scroll to the bottom
             get_response();
             $('.chatbox').scrollTop($('.chatbox')[0].scrollHeight);
         });
+        var input = document.getElementById("chat-input");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("send").click();
+  }
+});
 
         function bot_greet(firstText) {
           $.get("/get", { msg: firstText }).done(function(data) {
-            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div>';
+            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div><div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div>';
             $("#chatbox").append(botHtml);
           });
         }
@@ -78,7 +83,7 @@
         function get_response() {
           $.get("/get", { msg: rawText }).done(function(data) {
             console.log(rawText);
-            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div>';
+            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div><div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div>';
             $("#chatbox").append(botHtml);
           });
         }

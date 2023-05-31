@@ -3,7 +3,7 @@ body,html{
 	margin: 0;
 	background: rgb(44, 47, 59);
    	background: -webkit-linear-gradient(to right, rgb(40, 59, 34), rgb(54, 60, 70), rgb(32, 32, 43));
-	background: linear-gradient(to right, rgb(38, 51, 61), rgb(50, 55, 65), rgb(33, 33, 78));
+	background-image: linear-gradient(to right, #DECBA4, #3E5151);
 }
 .card-container{
 	display: flex;
@@ -19,8 +19,9 @@ body,html{
 .card{
 	width: 33.33%;
     height: 90%;
-	border-radius: 15px !important;
-	background-color: rgba(0,0,0,0.4) !important;
+	border-radius: 25px !important;
+	background-image: linear-gradient(to right, #DECBA4, #3E5151)!important;
+	border: 2px solid #FFC13C;
 }
 .card-body {
     overflow-y: auto;
@@ -35,9 +36,10 @@ body,html{
 	margin-bottom: auto;
     margin: 10px;
 	border-radius: 25px;
-	background-color: #58cc71;
+	background-color: #e2f0ef;
 	padding: 10px;
 	position: relative;
+	border: 2px solid #9cf3b0;
 	}
 .chat-response-wrapper p {
     font-size: 0.75rem; /* Adjust as needed */
@@ -58,11 +60,17 @@ body,html{
 	color: rgba(255,255,255,0.6);
 }
 .msg_head{
-	position: relative;
+	position: relative; 
 }
-.card-header{
+.card-header:after{
 	border-radius: 15px 15px 0 0 !important;
 	border-bottom: 0 !important;
+	content:'';
+	display: block;
+	height: 2px;
+	width: 100%;
+	background: #FFC13C;
+	margin-top: 5px;
 }
 .online_icon{
 	position: absolute;
@@ -124,7 +132,7 @@ body,html{
 	margin-bottom: auto;
     margin: 10px;
 	border-radius: 25px;
-	background-color: #58cc71;
+	background-color: #e2f0ef;
 	padding: 10px;
 	position: relative;
 }

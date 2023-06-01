@@ -35,7 +35,7 @@
                         <div class="input-group">
                             <input type="text" id="chat-input" name="msg" placeholder="Type your message..." autocomplete="off" class="form-control type_msg" required/>
                             <div class="input-group-append">
-                                <button type="submit" id="send" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                <button type="submit" id="send" class="input-group-text send_btn"> Send <i class="fas fa-location-arrow"></i></button>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
         $('#send').click(function() {
             var text = $('#chat-input').val();
             rawText = text; 
-            $('.chatbox').append('<div class="chat-response-wrappers border border-success"><p> <span class="font-weight-bold">Student </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + text + '</p></div><div class="img_cont_msg"><img src="https://pbs.twimg.com/profile_images/498702531627720704/9MmYXwKX.png" class="rounded-circle user_img_msg"></div></div>');
+            $('.chatbox').append('<div class="chat-response-wrappers border border-success"><p> <img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"> <span class="font-weight-bold">Student </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + text + '</p></div>');
             $('#chat-input').val('');
 
             // Scroll to the bottom
@@ -75,7 +75,7 @@ input.addEventListener("keypress", function(event) {
 
         function bot_greet(firstText) {
           $.get("/get", { msg: firstText }).done(function(data) {
-            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div><div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div>';
+            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <img src="https://pbs.twimg.com/profile_images/498702531627720704/9MmYXwKX.png" class="rounded-circle user_img_msg"> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div>';
             $("#chatbox").append(botHtml);
           });
         }
@@ -83,7 +83,7 @@ input.addEventListener("keypress", function(event) {
         function get_response() {
           $.get("/get", { msg: rawText }).done(function(data) {
             console.log(rawText);
-            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div><div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div>';
+            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <img src="https://pbs.twimg.com/profile_images/498702531627720704/9MmYXwKX.png" class="rounded-circle user_img_msg"> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div>';
             $("#chatbox").append(botHtml);
           });
         }

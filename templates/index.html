@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -14,30 +14,25 @@
 </head>
 <body onload="bot_greet('sige');">
     <div class="container-fluid card-container p-10">
-                <div class="card">
-                    <div class="card-header msg_head">
-                        <div class="d-flex bd-highlight">
-                            <div class="img_cont">
-                                <img src="https://pbs.twimg.com/profile_images/498702531627720704/9MmYXwKX.png" class="rounded-circle user_img">
-                                <span class="online_icon"></span>
-                            </div>
-                            <div class="user_info">
-                                <span>LSPU OSAS</span>
-                                <p>Online</p>
-                            </div>
-                        </div>
+        <div class="card">
+            <div class="card-header msg_head">
+                <div class="d-flex bd-highlight">
+                    <div class="img_cont">
+                        <img src="https://pbs.twimg.com/profile_images/498702531627720704/9MmYXwKX.png" class="rounded-circle user_img">
+                        <span class="online_icon"></span>
                     </div>
-                    <div id="chatbox" class="card-body chatbox">
-                        
-                        
+                    <div class="user_info">
+                        <span>LSPU OSAS</span>
+                        <p>Online</p>
                     </div>
-                    <div class="card-footer">
-                        <div class="input-group">
-                            <input type="text" id="chat-input" name="msg" placeholder="Type your message..." autocomplete="off" class="form-control type_msg" required/>
-                            <div class="input-group-append">
-                                <button type="submit" id="send" class="input-group-text send_btn"> Send <i class="fas fa-location-arrow"></i></button>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div id="chatbox" class="card-body chatbox"></div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" id="chat-input" name="msg" placeholder="Type your message..." autocomplete="off" class="form-control type_msg" required/>
+                    <div class="input-group-append">
+                        <button type="submit" id="send" class="input-group-text send_btn"> Send <i class="fas fa-location-arrow"></i></button>
                     </div>
                 </div>
             </div>
@@ -49,43 +44,53 @@
 
     <script>
         var rawText;
-        $("#chat-input").keypress(function(e){
-            if(e.which == 13){
+        $("#chat-input").keypress(function(e) {
+            if (e.which == 13) {
                 console.log('return key pressed');
             }
         });
-        
+
         $('#send').click(function() {
             var text = $('#chat-input').val();
-            rawText = text; 
-            $('.chatbox').append('<div class="chat-response-wrappers border border-success"><p> <img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"> <span class="font-weight-bold">Student </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + text + '</p></div>');
+            rawText = text;
+            var currentTime = new Date();
+            var timeString = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            var dateString = currentTime.toDateString();
+            $('.chatbox').append('<div class="chat-response-wrappers border border-success"><p> <img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"> <span class="font-weight-bold">Student </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">' + timeString + '</span></p><p>' + text + '</p></div>');
             $('#chat-input').val('');
 
             // Scroll to the bottom
             get_response();
             $('.chatbox').scrollTop($('.chatbox')[0].scrollHeight);
         });
+
         var input = document.getElementById("chat-input");
-input.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("send").click();
-  }
-});
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("send").click();
+            }
+        });
 
         function bot_greet(firstText) {
-          $.get("/get", { msg: firstText }).done(function(data) {
-            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <img src="https://pbs.twimg.com/profile_images/498702531627720704/9MmYXwKX.png" class="rounded-circle user_img_msg"> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div>';
-            $("#chatbox").append(botHtml);
-          });
+            $.get("/get", { msg: firstText }).done(function(data) {
+                var currentTime = new Date();
+                var timeString = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                var dateString = currentTime.toDateString();
+                var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <img src="https://pbs.twimg.com/profile_images/498702531627720704/9MmYXwKX.png" class="rounded-circle user_img_msg"> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">' + timeString + '</span></p><p>' + data + '</p></div>';
+                $("#chatbox").append(botHtml);
+            });
         }
 
         function get_response() {
-          $.get("/get", { msg: rawText }).done(function(data) {
-            console.log(rawText);
-            var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <img src="https://pbs.twimg.com/profile_images/498702531627720704/9MmYXwKX.png" class="rounded-circle user_img_msg"> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">10:35 AM</span></p><p>' + data + '</p></div>';
-            $("#chatbox").append(botHtml);
-          });
+            $.get("/get", { msg: rawText }).done(function(data) {
+                console.log(rawText);
+                var currentTime = new Date();
+                var timeString = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                var dateString = currentTime.toDateString();
+                var botHtml = '<div class="chat-response-wrapper border border-primary"><p> <img src="https://pbs.twimg.com/profile_images/498702531627720704/9MmYXwKX.png" class="rounded-circle user_img_msg"> <span class="font-weight-bold">LSPU OSAS </span> <span class="text-sm text-secondary" style="font-size: 0.60rem">' + timeString + '</span></p><p>' + data + '</p></div>';
+                $("#chatbox").append(botHtml);
+            });
         }
     </script>
 </body>
